@@ -1,0 +1,10 @@
+{
+  "name": "energy-engineering-seminar",
+  "private": true,
+  "type": "module",
+  "description": "Website for UC Berkeley's Energy Engineering Seminar (ENGIN 93 / CIVENG 298), Fall 2026: Data Centers",
+  "scripts": {
+    "sync": "node scripts/sync-sheet.mjs",
+    "serve": "python3 -m http.server 8000"
+  }
+}

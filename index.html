@@ -2,394 +2,438 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ENGIN 93 Alumni | UC Berkeley Energy Engineering Seminar</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Centers · Energy Engineering Seminar, Fall 2026 · UC Berkeley</title>
+  <meta name="description" content="Recorded lectures from UC Berkeley's Energy Engineering Seminar (ENGIN 93 / CIVENG 298), Fall 2026: Data Centers. Grid impacts, cooling, water, materials and cybersecurity, from Berkeley, the national labs and industry.">
+  <meta property="og:title" content="Data Centers · Energy Engineering Seminar, Fall 2026">
+  <meta property="og:description" content="The energy system behind the cloud. Watch the Fall 2026 lecture series from UC Berkeley.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#002676">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script type="module" src="assets/js/main.js"></script>
 </head>
 <body>
-  <div class="flex-container">
-    <header class="site-header">
-      <div class="container">
-        <h1 class="site-title">ENGIN 93 Alumni</h1>
-        <p class="site-subtitle">UC Berkeley Energy Engineering Seminar</p>
+  <a class="skip-link" href="#lectures">Skip to lectures</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="#top" aria-label="Energy Engineering Seminar, home">
+        <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="5" y="5" width="14" height="14" rx="3"/>
+          <path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/>
+          <circle cx="12" cy="12" r="2.2"/>
+        </svg>
+        <span>Energy Engineering Seminar</span>
+      </a>
+      <nav class="topnav" aria-label="Sections">
+        <a href="#lectures">Lectures</a>
+        <a href="#instructors">Instructors</a>
+        <a href="#updates">Updates</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <svg class="hero__art" viewBox="0 0 560 420" aria-hidden="true" preserveAspectRatio="xMaxYMid slice">
+        <g class="hero__traces">
+          <path d="M40 60h180l30 30h150l24 24v90"/>
+          <path d="M0 150h120l24-24h96"/>
+          <path d="M80 250h160l30-30h90l24 24h120"/>
+          <path d="M180 330h110l26 26h160"/>
+          <path d="M424 204v76l-26 26h-62"/>
+          <path d="M300 20v40"/>
+          <path d="M520 60v110l-24 24"/>
+        </g>
+        <g class="hero__pads">
+          <rect x="214" y="54" width="12" height="12" rx="2"/>
+          <rect x="418" y="198" width="12" height="12" rx="2"/>
+          <rect x="114" y="144" width="12" height="12" rx="2"/>
+          <rect x="234" y="244" width="12" height="12" rx="2"/>
+          <rect x="330" y="300" width="12" height="12" rx="2"/>
+          <circle cx="300" cy="20" r="5"/>
+          <circle cx="496" cy="194" r="5"/>
+          <circle cx="474" cy="356" r="5"/>
+        </g>
+        <g class="hero__rack">
+          <rect x="300" y="110" width="96" height="64" rx="6"/>
+          <path d="M312 126h52M312 142h52M312 158h52"/>
+          <circle class="led" cx="380" cy="126" r="3"/>
+          <circle class="led" cx="380" cy="142" r="3"/>
+          <circle class="led led--gold" cx="380" cy="158" r="3"/>
+        </g>
+      </svg>
+      <div class="wrap hero__inner">
+        <p class="eyebrow">Energy Engineering Seminar · Fall 2026 · <abbr title="Engineering 93">ENGIN&nbsp;93</abbr> / <abbr title="Civil Engineering 298">CIVENG&nbsp;298</abbr></p>
+        <h1 class="hero__title">Data Centers</h1>
+        <p class="hero__sub">The energy system behind the cloud.</p>
+        <p class="hero__intro">
+          AI and cloud computing are driving a surge in electricity demand, and data centers are where that
+          demand lands. Siting and powering these facilities raises hard engineering questions: how to connect
+          them to the grid, how to cool them, how much water they use, what they are built from, and how to
+          secure them. This semester, researchers and practitioners from Berkeley, the national labs and industry
+          take the data center apart one layer at a time, from power systems and planning to cooling, water,
+          concrete and cybersecurity.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="https://www.youtube.com/playlist?list=PLRPxPwpZUnWE" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+            Watch the series
+          </a>
+          <a class="btn btn--ghost" href="#updates">Get lecture updates</a>
+        </div>
+        <p class="hero__meta">Wednesdays · August 26 – December 2, 2026 · UC Berkeley</p>
       </div>
-    </header>
+    </section>
 
-    <main class="main-content">
-      <div class="container">
-        <section class="section">
-          <h2 class="section-title">About the Seminar</h2>
-          <div class="card">
-            <p class="text-lg">
-              The UC Berkeley Energy Engineering Seminar (ENGIN 93) brings together industry leaders, researchers, and
-              innovators in the energy sector to share insights on sustainable energy solutions, technological
-              advancements, and policy implications. This seminar series provides students with exposure to cutting-edge
-              developments in energy engineering and creates networking opportunities with professionals in the field.
-            </p>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title">Course Instructor</h2>
-          <div class="card instructor-card">
-            <div class="instructor-image">
-              <img src="images/professor-moura.png" alt="Professor Scott Moura">
-            </div>
-            <div class="instructor-info">
-              <h3 class="instructor-name">Professor Scott Moura</h3>
-              <p class="instructor-department">Department of Civil and Environmental Engineering</p>
-              <p class="instructor-bio">
-                Professor Scott Moura specializes in control and optimization of energy systems, with a focus on
-                batteries, electric vehicles, and renewable energy integration. His research aims to develop sustainable
-                energy solutions through innovative engineering approaches.
-              </p>
-              <div class="button-group">
-                <a href="https://ce.berkeley.edu/people/faculty/moura" target="_blank" rel="noopener noreferrer" class="button primary">
-                  <i class="fas fa-external-link-alt"></i> Faculty Profile
-                </a>
-                <a href="mailto:smoura@berkeley.edu" class="button secondary">
-                  <i class="fas fa-envelope"></i> Contact
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title">Lecture Series</h2>
-          <div class="lecture-grid">
-            <!-- Lecture 1 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">Introduction: 50B to Zero</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://ce.berkeley.edu/people/faculty/moura" target="_blank" class="speaker-link">
-                    Prof. Scott Moura
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://youtu.be/LwecaBjari4" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 2 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">Nuclear Energy and the Next Generation Nuclear Reactors</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://vcresearch.berkeley.edu/faculty/raluca-scarlat" target="_blank" class="speaker-link">
-                    Raluca O. Scarlat
-                  </a>
-                </p>
-                <p class="more-info">
-                  More: 
-                  <a href="https://salt.nuc.berkeley.edu/" target="_blank" class="more-link">
-                    The SALT Research Group
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example2" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 3 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">The future of cooling</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://ced.berkeley.edu/people/stefano-schiavon/" target="_blank" class="speaker-link">
-                    Stefano Schiavon
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example3" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 4 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">Cleaner combustion through whirling flames</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://me.berkeley.edu/people/michael-gollner/" target="_blank" class="speaker-link">
-                    Michael Gollner
-                  </a>
-                </p>
-                <p class="more-info">
-                  More: 
-                  <a href="https://firelab.berkeley.edu/" target="_blank" class="more-link">
-                    The Fire Research Lab
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example4" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 5 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">The Energy/Comfort Nexus: making buildings work for people & planet</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://cbe.berkeley.edu/about-us/people/gail-brager/" target="_blank" class="speaker-link">
-                    Gail Brager
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example5" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 6 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">Contemporary Issues Facing the Electric Grid</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://eta.lbl.gov/people/daniel-arnold" target="_blank" class="speaker-link">
-                    Dan Arnold
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example6" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 7 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">Energy Storage</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://ce.berkeley.edu/people/faculty/moura" target="_blank" class="speaker-link">
-                    Scott Moura
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example7" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 8 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">The Role of Energy Intensive Water Technologies in Alleviating Water Scarcity</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://ce.berkeley.edu/people/faculty/sedlak" target="_blank" class="speaker-link">
-                    David Sedlak
-                  </a>
-                </p>
-                <p class="more-info">
-                  More: 
-                  <a href="https://sedlakgroup.berkeley.edu/" target="_blank" class="more-link">
-                    The SEDLAK Group
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example8" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 9 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">Building a new transmission system for the US</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://erg.berkeley.edu/people/callaway-duncan/" target="_blank" class="speaker-link">
-                    Duncan Callaway
-                  </a>
-                </p>
-                <p class="more-info">
-                  More: 
-                  <a href="https://emac.berkeley.edu/" target="_blank" class="more-link">
-                    Energy Modeling, Analysis, & Control
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example9" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 10 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">Impacts of Shared Automated Electric Vehicle Expansion on Travel Behavior and the Environment</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://eta.lbl.gov/people/jessica-lazarus" target="_blank" class="speaker-link">
-                    Jessica Lazarus
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example10" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 11 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">Calculating the Extended Heat Index in Hot and Humid Extremes</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://www.downtoearth.org.in/author/elif-kilic" target="_blank" class="speaker-link">
-                    Elif Kilic
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example11" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 12 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">Biomass Carbon Removal and Storage</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://ourenvironment.berkeley.edu/people/daniel-sanchez" target="_blank" class="speaker-link">
-                    Daniel Sanchez
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example12" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 13 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">The hurricane risk of solar infrastructure</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://ce.berkeley.edu/people/faculty/ceferino" target="_blank" class="speaker-link">
-                    Luis Ceferino
-                  </a>
-                </p>
-                <p class="more-info">
-                  More: 
-                  <a href="https://www.luisceferino.com/" target="_blank" class="more-link">
-                    Disaster Risk Analysis Lab
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example13" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <!-- Lecture 14 -->
-            <div class="lecture-card">
-              <div class="lecture-header">
-                <h3 class="lecture-title">Using GPS satellites to track and predict flooding</h3>
-              </div>
-              <div class="lecture-content">
-                <p class="speaker-info">
-                  Speaker: 
-                  <a href="https://ce.berkeley.edu/people/faculty/cgerlein" target="_blank" class="speaker-link">
-                    Cynthia Gerlein-Safdi
-                  </a>
-                </p>
-              </div>
-              <div class="lecture-footer">
-                <a href="https://www.youtube.com/watch?v=example14" target="_blank" class="button outline full-width">
-                  <i class="fas fa-external-link-alt"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+    <section class="map" id="lectures" aria-labelledby="lectures-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title" id="lectures-title">The lineup</h2>
+          <ul class="legend" aria-label="Legend">
+            <li><span class="legend__pad legend__pad--on"></span>Recording available</li>
+            <li><span class="legend__pad legend__pad--off"></span>Upcoming</li>
+          </ul>
+        </div>
+        <div class="route">
+          <svg class="route__trace" aria-hidden="true"></svg>
+          <ol class="route__stops" id="lecture-list">
+<!-- LECTURES:START -->
+    <li class="stop stop--left is-processing" id="lecture-1" data-week="1">
+      <div class="stop__date">
+        <time datetime="2026-08-26"><span class="stop__dow">Wed</span> Aug 26</time>
+        <span class="stop__week">Week 1</span>
       </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <p class="copyright">© <span id="current-year"></span> UC Berkeley ENGIN 93 Alumni</p>
-          <div class="footer-links">
-            <a href="https://engineering.berkeley.edu/" target="_blank" rel="noopener noreferrer" class="footer-link">
-              <i class="fas fa-external-link-alt"></i> Berkeley Engineering
-            </a>
-            <a href="mailto:smoura@berkeley.edu" class="footer-link">
-              <i class="fas fa-envelope"></i> Contact Professor Moura
-            </a>
-          </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="DA"><img src="images/speakers/daniel-arnold.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Recording coming soon</span>
+          <h3 class="card__title">Introduction: Contemporary Issues in Power Systems</h3>
+          <p class="card__speaker">Daniel Arnold</p>
+          <p class="card__role">Lead Power Grid Engineer · Lawrence Livermore National Lab</p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--right is-processing" id="lecture-2" data-week="2">
+      <div class="stop__date">
+        <time datetime="2026-09-02"><span class="stop__dow">Wed</span> Sep 2</time>
+        <span class="stop__week">Week 2</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="MW"><img src="images/speakers/michael-wetter.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Recording coming soon</span>
+          <h3 class="card__title">Platform-Based Design for Data Center Design-Build-Operate Workflow</h3>
+          <p class="card__speaker">Michael Wetter</p>
+          <p class="card__role">Computational Senior Scientist · Lawrence Berkeley National Lab</p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--left is-processing" id="lecture-3" data-week="3">
+      <div class="stop__date">
+        <time datetime="2026-09-09"><span class="stop__dow">Wed</span> Sep 9</time>
+        <span class="stop__week">Week 3</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="SS"><img src="images/speakers/sarah-smith.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Recording coming soon</span>
+          <h3 class="card__title">National Data Center Energy and Water Use Modeling and Grid Impact Considerations</h3>
+          <p class="card__speaker">Sarah Smith</p>
+          <p class="card__role">Research Scientist · Lawrence Berkeley National Lab</p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--right is-published" id="lecture-4" data-week="4">
+      <div class="stop__date">
+        <time datetime="2026-09-16"><span class="stop__dow">Wed</span> Sep 16</time>
+        <span class="stop__week">Week 4</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        <a class="card__link" href="https://www.youtube.com/watch?v=nfAGRCMqAa4" data-video="nfAGRCMqAa4" data-week="4">
+        <span class="visually-hidden">Watch “Techno-Economic and Capacity Expansion Modeling Framework to Assess Grid Impacts of Data Centers” by Will McNeil</span></a>
+        <div class="card__photo" data-initials="WM"><img src="images/speakers/will-mcneil.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--published"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg>Watch lecture</span>
+          <h3 class="card__title">Techno-Economic and Capacity Expansion Modeling Framework to Assess Grid Impacts of Data Centers</h3>
+          <p class="card__speaker">Will McNeil</p>
+          <p class="card__role">Stanford Energy Postdoctoral Fellow · Stanford University</p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--left is-today" id="lecture-5" data-week="5">
+      <div class="stop__date">
+        <time datetime="2026-09-23"><span class="stop__dow">Wed</span> Sep 23</time>
+        <span class="stop__week">Week 5</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="EC"><img src="images/speakers/emilia-chojkiewicz.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--today">Today</span>
+          <h3 class="card__title">Powering Data Centers with the Grid We Already Have</h3>
+          <p class="card__speaker">Emilia Chojkiewicz</p>
+          <p class="card__role">PhD Candidate · UC Berkeley<span class="card__unit">Energy Resources Group</span></p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--right is-upcoming" id="lecture-6" data-week="6">
+      <div class="stop__date">
+        <time datetime="2026-09-30"><span class="stop__dow">Wed</span> Sep 30</time>
+        <span class="stop__week">Week 6</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="AS"><img src="images/speakers/anna-scaglione.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Upcoming</span>
+          <h3 class="card__title">Can AI Data Centers Keep Its Promise to the Grid? Why Population-Based Models for Control Need Layers</h3>
+          <p class="card__speaker">Anna Scaglione</p>
+          <p class="card__role">Professor · Cornell Tech</p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--left is-upcoming" id="lecture-7" data-week="7">
+      <div class="stop__date">
+        <time datetime="2026-10-07"><span class="stop__dow">Wed</span> Oct 7</time>
+        <span class="stop__week">Week 7</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="AD"><img src="images/speakers/armando-domingos.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Upcoming</span>
+          <h3 class="card__title">Data Center Planning and Strategy</h3>
+          <p class="card__speaker">Armando Domingos</p>
+          <p class="card__role">Infrastructure Strategy Lead · Meta</p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--right is-upcoming" id="lecture-8" data-week="8">
+      <div class="stop__date">
+        <time datetime="2026-10-14"><span class="stop__dow">Wed</span> Oct 14</time>
+        <span class="stop__week">Week 8</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="HL"><img src="images/speakers/haitam-laarabi.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Upcoming</span>
+          <h3 class="card__title">The Overlooked Energy Footprint of Vehicle Automation from Edge to Data Center Computing</h3>
+          <p class="card__speaker">Haitam Laarabi</p>
+          <p class="card__role">Project Scientist · Lawrence Berkeley National Lab</p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--left is-upcoming" id="lecture-9" data-week="9">
+      <div class="stop__date">
+        <time datetime="2026-10-21"><span class="stop__dow">Wed</span> Oct 21</time>
+        <span class="stop__week">Week 9</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="FZ"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Upcoming</span>
+          <h3 class="card__title">Low Carbon Concrete: The Foundational Block to Sustain Data Center Infrastructure</h3>
+          <p class="card__speaker">Franco Zunino</p>
+          <p class="card__role">Assistant Professor · UC Berkeley<span class="card__unit">Civil &amp; Environmental Engineering</span></p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--right is-upcoming" id="lecture-10" data-week="10">
+      <div class="stop__date">
+        <time datetime="2026-10-28"><span class="stop__dow">Wed</span> Oct 28</time>
+        <span class="stop__week">Week 10</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="JS"><img src="images/speakers/jenn-stokes-draut.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Upcoming</span>
+          <h3 class="card__title">What&#39;s the big deal with water use in data centers?</h3>
+          <p class="card__speaker">Jenn Stokes-Draut</p>
+          <p class="card__role">Staff Scientist · Lawrence Berkeley National Lab</p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--left is-upcoming" id="lecture-11" data-week="11">
+      <div class="stop__date">
+        <time datetime="2026-11-04"><span class="stop__dow">Wed</span> Nov 4</time>
+        <span class="stop__week">Week 11</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="EB"><img src="images/speakers/ethan-brownell.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Upcoming</span>
+          <h3 class="card__title">Data Center Thermal Modeling</h3>
+          <p class="card__speaker">Ethan Brownell</p>
+          <p class="card__role">Systems Analyst · Lawrence Livermore National Lab</p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--right is-upcoming" id="lecture-12" data-week="12">
+      <div class="stop__date">
+        <time datetime="2026-11-18"><span class="stop__dow">Wed</span> Nov 18</time>
+        <span class="stop__week">Week 12</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="CP"><img src="images/speakers/colin-ponce.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Upcoming</span>
+          <h3 class="card__title">Cybersecurity of Grid-Facing AI</h3>
+          <p class="card__speaker">Colin Ponce</p>
+          <p class="card__role">Computational Mathematician · Lawrence Livermore National Lab</p>
+        </div>
+      </article>
+    </li>
+    <li class="stop stop--left is-upcoming" id="lecture-13" data-week="13">
+      <div class="stop__date">
+        <time datetime="2026-12-02"><span class="stop__dow">Wed</span> Dec 2</time>
+        <span class="stop__week">Week 13</span>
+      </div>
+      <div class="stop__node" aria-hidden="true"></div>
+      <article class="card">
+        
+        <div class="card__photo" data-initials="RP"><img src="images/speakers/robert-pilawa.jpg" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+        <div class="card__body">
+          <span class="tag tag--muted">Upcoming</span>
+          <h3 class="card__title">Title TBA</h3>
+          <p class="card__speaker">Robert Pilawa</p>
+          <p class="card__role">Professor · UC Berkeley<span class="card__unit">Electrical Engineering &amp; Computer Science</span></p>
+        </div>
+      </article>
+    </li><!-- LECTURES:END -->
+          </ol>
         </div>
       </div>
-    </footer>
-  </div>
+    </section>
 
-  <script src="script.js"></script>
+    <section class="people" id="instructors" aria-labelledby="instructors-title">
+      <div class="wrap">
+        <h2 class="section-title" id="instructors-title">Instructors</h2>
+        <div class="people__grid">
+          <article class="person">
+            <img class="person__photo" src="images/instructors/daniel-arnold.jpg" alt="Daniel Arnold" width="120" height="120" loading="lazy">
+            <div>
+              <h3 class="person__name">Daniel Arnold</h3>
+              <p class="person__role">Lead Power Grid Engineer, Lawrence Livermore National Lab<br>Adjunct Professor, Civil &amp; Environmental Engineering, UC Berkeley</p>
+              <p class="person__bio">
+                Daniel Arnold leads power grid engineering at Lawrence Livermore National Laboratory and teaches
+                at Berkeley as an Adjunct Professor. He opens this semester's series with an introduction to
+                contemporary issues in power systems, the context for everything that follows.
+              </p>
+              <p class="person__links">
+                <a href="https://www.linkedin.com/in/daniel-arnold-78b59269/" target="_blank" rel="noopener">LinkedIn</a>
+              </p>
+            </div>
+          </article>
+          <article class="person">
+            <img class="person__photo" src="images/instructors/scott-moura.jpg" alt="Scott Moura" width="120" height="120" loading="lazy">
+            <div>
+              <h3 class="person__name">Scott Moura</h3>
+              <p class="person__role">Professor, Civil &amp; Environmental Engineering<br>UC Berkeley</p>
+              <p class="person__bio">
+                Scott Moura studies the control and optimization of energy systems, especially batteries,
+                electric vehicles and the integration of renewable energy into the grid. He directs the
+                Energy, Controls &amp; Applications Lab (eCAL) at Berkeley.
+              </p>
+              <p class="person__links">
+                <a href="https://ce.berkeley.edu/people/faculty/moura" target="_blank" rel="noopener">Faculty profile</a>
+                <a href="mailto:smoura@berkeley.edu">smoura@berkeley.edu</a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="updates" id="updates" aria-labelledby="updates-title">
+      <div class="wrap updates__inner">
+        <div class="updates__copy">
+          <h2 class="section-title" id="updates-title">Stay in the loop</h2>
+          <p>Get an email when new lectures are posted and when we announce future seminars and events. Occasional emails only, and never shared.</p>
+        </div>
+        <form class="signup" id="signup" novalidate>
+          <div class="field">
+            <label for="signup-email">Email address <span aria-hidden="true">*</span></label>
+            <input id="signup-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="signup-name">Full name</label>
+            <input id="signup-name" name="name" type="text" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="signup-affiliation">Affiliation with UC Berkeley</label>
+            <select id="signup-affiliation" name="affiliation">
+              <option value="">Select one (optional)</option>
+              <option>Undergraduate Student</option>
+              <option>Graduate Student</option>
+              <option>Faculty / Staff</option>
+              <option>Alumni</option>
+              <option>Community Member / Other</option>
+            </select>
+          </div>
+          <div class="field field--hp" aria-hidden="true">
+            <label for="signup-website">Website</label>
+            <input id="signup-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn btn--gold" type="submit">Notify me</button>
+          <p class="signup__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span id="year">2026</span> Energy Engineering Seminar · University of California, Berkeley</p>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="https://www.youtube.com/playlist?list=PLRPxPwpZUnWE" target="_blank" rel="noopener">YouTube playlist</a>
+        <a href="https://ce.berkeley.edu/" target="_blank" rel="noopener">Civil &amp; Environmental Engineering</a>
+        <a href="https://engineering.berkeley.edu/" target="_blank" rel="noopener">Berkeley Engineering</a>
+        <a href="mailto:smoura@berkeley.edu">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog class="player" id="player" aria-labelledby="player-title">
+    <div class="player__head">
+      <div>
+        <p class="player__eyebrow" id="player-week"></p>
+        <h2 class="player__title" id="player-title"></h2>
+        <p class="player__speaker" id="player-speaker"></p>
+      </div>
+      <button class="player__close" type="button" aria-label="Close video" data-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="player__frame" id="player-frame"></div>
+    <div class="player__foot">
+      <a id="player-youtube" href="#" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+    </div>
+  </dialog>
 </body>
 </html>
