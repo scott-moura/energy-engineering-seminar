@@ -124,10 +124,9 @@ renamed.
 | `Video URL` | existing | — | Blank means not yet published. `youtu.be/…` and `youtube.com/watch?v=…` both work. |
 | `Show` | **add** (optional) | — | Put `No` to hide a row without deleting it. Blank means shown. |
 
-**Access:** the sheet is currently private to its owner. The nightly sync and the live refresh both need it
-available through **File → Share → Publish to web → Sheet1 → CSV**. Publishing makes only the lecture data
-public; the newsletter responses stay in a separate file. If Berkeley's Workspace blocks Publish to web, the
-fallback is a Google service account with read-only access used by the nightly Action, with no live refresh.
+**Access:** the sheet is public (since 2026-09-23), and both the nightly sync and the browser read it from
+`https://docs.google.com/spreadsheets/d/<id>/export?format=csv`. The browser fetch works across origins. The
+newsletter responses stay in a separate file.
 
 ### 6.2 Snapshot and live refresh
 - A **GitHub Action runs nightly** (and on manual dispatch). It downloads the published CSV, validates it,
@@ -165,8 +164,8 @@ fallback is a Google service account with read-only access used by the nightly A
   nightly Action downloads any new `photo_url`, resizes it, saves it to `/images/speakers/<slug>.jpg`, fills
   commits. After that, adding a lecture needs no repo access. **Constraint:** the ingestion script can't
   get past bot-protected hosts such as LBL's person-image pages. For those, the TA uploads the photo file
-  itself (e.g. through a Form file-upload question). If a download fails, the Action posts a GitHub issue
-  and the card falls back to initials.
+  itself (e.g. through a Form file-upload question). If a download fails, the Action logs a warning in its
+  run summary and the card falls back to initials.
 
 ## 7. Technical architecture
 
@@ -216,8 +215,8 @@ export URL; the newsletter Form was created; Dan's title and profile link were s
 
 ## 10. Build phases
 
-1. **Phase 1 (built 2026-09-23, awaiting review):** Page built from the live sheet data: hero, circuit-trace lecture map, modal,
+1. **Phase 1 (done 2026-09-23):** Page built from the live sheet data: hero, circuit-trace lecture map, modal,
    instructor, newsletter UI, responsive and accessibility pass. *Review with Scott.*
-2. **Phase 1b:** Wire up the Google Sheet (snapshot and live refresh), the newsletter Form, the nightly
+2. **Phase 1b (built 2026-09-23, awaiting first deploy):** Wire up the Google Sheet (snapshot and live refresh), the newsletter Form, the nightly
    Action and the Pages deploy.
 3. **Phase 2:** TA submission form and automated photo ingestion.

@@ -1,0 +1,69 @@
+# Sync the lecture Google Sheet into the repo, then deploy the site to GitHub Pages.
+# Runs nightly, on every push to main, and on demand (Actions tab → "Sync & deploy" → Run workflow).
+name: Sync & deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 10 * * *" # 3:00 AM Pacific in summer, 2:00 AM in winter
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit the synced snapshot and photos
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Install ImageMagick (photo resizing)
+        run: command -v magick || command -v convert || (sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick)
+
+      - name: Sync lectures from the Google Sheet
+        # If Google is unreachable, keep going and deploy the last committed snapshot.
+        run: node scripts/sync-sheet.mjs || echo "::warning::Sheet sync failed; deploying the last snapshot."
+
+      - name: Commit changes
+        run: |
+          git add data images index.html
+          if git diff --cached --quiet; then
+            echo "No changes from the sheet."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Sync lectures from Google Sheet"
+            git push
+          fi
+
+      - name: Assemble site
+        run: |
+          mkdir _site
+          cp -R index.html assets data images _site/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

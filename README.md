@@ -24,6 +24,17 @@ npm run sync
 
 If a photo can't be downloaded automatically, save it by hand as `images/speakers/<first-last>.jpg`.
 
+## Publishing
+
+The **Sync & deploy** GitHub Action (`.github/workflows/site.yml`) runs every night, on every push to
+`main`, and on demand from the Actions tab (**Run workflow**). It syncs the sheet, commits any new data or
+photos, and publishes the site to https://scott-moura.github.io/energy-engineering-seminar/.
+
+Photos that can't be downloaded show up as warnings in the Action's run summary.
+
+GitHub pauses scheduled workflows in repositories with no activity for 60 days. If that happens, re-enable
+the workflow from the Actions tab.
+
 ## Local preview
 
 ```bash
